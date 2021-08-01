@@ -1,0 +1,11 @@
+<p>todo works!</p>
+<input type="text" id="txtInput">
+<input type="button" id="btnClick" (click)="OnButtonClick($event)" value="Click">
+<hr>
+<form [formGroup]="employeeForm">
+    <label for="fullName">FullName</label>
+    <input id="fullName" [formControlName] ="'fullName'" type="text">
+
+    <label for="email">Email</label>
+    <input id="email"  [formControlName] ="'email'" type="text">
+</form>

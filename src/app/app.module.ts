@@ -1,3 +1,7 @@
+import { todos } from './redux/reducer';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/tutorial.reducer';
+import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -25,6 +29,9 @@ import { PromiseComponent } from './promise/promise.component';
 import { SamplerxjsComponent } from './samplerxjs/samplerxjs.component';
 import { KendoGridSampleComponent } from './kendo-grid-sample/kendo-grid-sample.component';
 import { HihlightDirective } from './hihlight.directive';
+import { TodoComponent } from './todo/todo.component';
+import { MyhihlihtDirective } from './myhihliht.directive';
+import { SamplengrxComponent } from './samplengrx/samplengrx.component';
 
 
 
@@ -45,7 +52,10 @@ import { HihlightDirective } from './hihlight.directive';
     PromiseComponent,
     SamplerxjsComponent,
     KendoGridSampleComponent,
-    HihlightDirective
+    HihlightDirective,
+    TodoComponent,
+    MyhihlihtDirective,
+    SamplengrxComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +70,9 @@ import { HihlightDirective } from './hihlight.directive';
     DialogsModule,
     FormsModule,
     HttpClientModule,
-    NgxPrintModule
-  ],
+    NgxPrintModule,
+    CoreModule,
+   ],
   providers: [],
   bootstrap: [AppComponent]
 })

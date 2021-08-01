@@ -1,0 +1,14 @@
+<p>angessntial works!</p>
+<ng-container *ngFor="let item of products" >
+    <div>
+        <p>Product : {{item.title}}</p>
+        <p>Price : {{item.price}}</p>
+    </div>
+</ng-container>
+<button [style.height.px] = 'btnHeight' [style.width.px] = 'btnWidth' (click)="AddProduct()" >
+Add Product
+</button >
+<hr>
+<input type="text" [(ngModel)] ='name' >
+<p>{{name}}</p>
+<hr>

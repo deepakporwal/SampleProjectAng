@@ -1,0 +1,5 @@
+<p>{{message}}</p>
+<p>Data From Child : {{desc}}</p>
+<input type="button" (click)="childtemp.sayChildHello()" value ="Call Child Method" class='form-control'>
+<hr>
+<app-child #childtemp [parentId]="1001" (fetchData)= "GetResponse($event)">{{message}}  </app-child>

@@ -1,0 +1,36 @@
+
+<div class="alert alert-info">
+    <h1>{{title}}</h1>
+
+<button type="button" class="btn btn-primary" (click) ="onLogin()">Login</button>
+<hr>
+
+<input type="text"  list="codes" [(ngModel)]="codeValue" (change)="saveCode($event)" [hidden]="true">
+<datalist id="codes">
+  <option *ngFor="let c of codeList" [value]="c.name" >{{c.name}}</option>
+</datalist>
+
+<input (input)="saveCode($event)" type="text" name="ReportParam" #paramCtrl [hidden]="true"
+list="codes" (focus)="bmlfonremoveAttribute($event)" maxlength="50"
+class="form-control grid-form-control" />
+<datalist id="ReportParameter">
+<ng-container *ngFor="let obj of codeList ">
+  <option value="{{obj.name}}"></option>
+</ng-container>
+</datalist> &nbsp;
+
+</div>
+<div style="background-color: lightpink;">
+  <div #box>
+    <input  type="text" [(ngModel)]="name" >
+  </div>
+
+  <hr>
+  <input  type="button" (click)="OnPress()" value="Test Observable">
+  <p appHihlight> deepak porwal</p>
+  <!-- <app-home></app-home> -->
+  <app-todo></app-todo>
+</div>
+<hr>
+<div><code>observable|async</code>:
+  Time: {{ time | async }}</div>

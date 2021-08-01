@@ -1,0 +1,104 @@
+<p>reactive-form works!</p>
+<label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+
+  <label>
+    deciamlbox:
+  <kendo-numerictextbox [spinners]="false" [formControl] ="decimalbox"
+    [format]="'n3'">
+</kendo-numerictextbox></label>
+<hr>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label>
+      First Name:
+      <input type="text" formControlName="firstName">
+    </label>
+
+    <label>
+      Last Name:
+      <input type="text" formControlName="lastName">
+    </label>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+  <button printSectionId="demo"  [useExistingCss]="true" ngxPrint>print</button>
+  <div>
+    <ul class="top_btn_list m_b_20">
+
+          <li title="demo print"  printSectionId="deepak"  ngxPrint>
+              <i></i>
+              <span></span>
+          </li>
+
+  </ul>
+  </div>
+
+  <hr>
+
+  <div id="deepak">babu</div>
+  <div id="demo">
+      <kendo-grid
+      [data]="gridView"
+      [pageSize]="pageSize"
+      [skip]="skip"
+      [pageable]="false"
+      [sortable]="true"
+      [filterable] = "true"
+      [filter]="state.filter"
+      (dataStateChange)="dataStateChange($event)"
+      [height]="400"
+      (pageChange)="pageChange($event)"
+      [sortable]="{
+        allowUnsort: allowUnsort,
+        mode: multiple ? 'multiple' : 'single'
+        }"
+      [sort]="true"
+      (sortChange)="sortChange($event)"
+      [selectable]="true"
+      (selectionChange) = "onRowSelect($event)"
+      >
+      <ng-template kendoGridToolbarTemplate>
+        <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button>
+        </ng-template>
+
+      <kendo-grid-checkbox-column showSelectAll="true" width="10px"></kendo-grid-checkbox-column>
+
+      <kendo-grid-column *ngFor="let col of columns" [field]="col.field" [hidden]="col.hidden" width="50" >
+      </kendo-grid-column>
+
+      <kendo-grid-column field="ProductName" title="New Product Name" width="50">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="text" (blur)="onLeave($event)" (change)="OnValChange($event)"  />
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="ProductName" title="New Product Name" width="50">
+      <ng-template kendoGridCellTemplate let-dataItem>
+          <input type="text" (blur)="onLeave($event)" (change)="OnValChange($event)"  />
+      </ng-template>
+  </kendo-grid-column>
+
+
+
+      <kendo-grid-pdf fileName="Products.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+        <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
+        <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages" >
+        <div class="page-template">
+            <div class="header">
+              <div style="float: right">Page {{ pageNum }} of {{ totalPages }}</div>
+              Multi-page grid with automatic page breaking
+            </div>
+            <div class="footer">
+              Page {{ pageNum }} of {{ totalPages }}
+            </div>
+          </div>
+        </ng-template>
+    </kendo-grid-pdf>
+
+      </kendo-grid>
+  </div>
+
+
+

@@ -1,0 +1,29 @@
+<div>
+    <a [routerLink]="['/']">
+        <h1>My Store</h1>
+      </a>
+      
+      <a class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
+    <h2>Products</h2>
+    <div *ngFor="let product of products">
+
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+</div>
+<!-- <kendo-dialog title="Please confirm" [minWidth]="250" [width]="450">
+    <p style="margin: 30px; text-align: center;">Are you sure you want to continue?</p>
+    <label>
+        ScreenName <input type="text">  
+    </label>
+    <kendo-dialog-actions>
+        <button kendoButton >No</button>
+        <button kendoButton  primary="true">Yes</button>
+    </kendo-dialog-actions>
+</kendo-dialog> -->
+</div>
+
+

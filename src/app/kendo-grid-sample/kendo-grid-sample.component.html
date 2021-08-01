@@ -1,0 +1,34 @@
+<p>kendo-grid-sample works!</p>
+<kendo-grid [data]="gridData" [height]="410" [selectable]="true">
+
+
+  <!-- <Mobile Grid> Begin -->
+  <kendo-grid [data]="gridData" [height]="400">
+    <!-- <Desktop Grid> Begin -->
+    <kendo-grid-checkbox-column media="(min-width: 768px)" showSelectAll="true" width="40"></kendo-grid-checkbox-column>
+    <kendo-grid-column media="(min-width: 768px)" field="ProductID" title="ID" width="40">
+    </kendo-grid-column>
+    <kendo-grid-column media="(min-width: 768px)" field="ProductName" title="Name" width="250">
+      <ng-template kendoGridCellTemplate let-dataItem let-idx="rowIndex">
+        <input type="text" id="txt{{dataItem.ProductName}}{{idx}}" [(ngModel)]="dataItem.ProductName"
+          (blur)="onblur($event,'name')" />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column media="(min-width: 768px)" field="Category.CategoryName" title="Category" width="250">
+      <ng-template kendoGridCellTemplate let-dataItem let idx="rowIndex">
+        <input type="text" [(ngModel)]="dataItem.Category.CategoryName" (blur)="onblur($event,'category')" />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column media="(min-width: 768px)" field="UnitPrice" title="Price" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column media="(min-width: 768px)" field="UnitsInStock" title="In stock" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column media="(min-width: 768px)" field="Discontinued" title="Discontinued" width="120">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.Discontinued" />
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+  <!-- <Desktop Grid> End -->
+  <hr>
+  <p>{{traceevents}}</p>

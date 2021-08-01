@@ -1,0 +1,14 @@
+<input type="button" #addBtn value="View Child Ex">
+<p>{{username}}</p>
+<hr>
+<form method="get" action="">
+    <div class="row">
+      <div class="input-group">
+        <input class="form-control py-2" type="text" name="username" placeholder="Recipient's text" aria-label="Recipient's " aria-describedby="my-addon" [(ngModel)]="username">
+        <div class="input-group-append">
+          <span class="input-group-text" id="my-addon">Text</span>
+        </div>
+
+      </div>
+    </div>
+</form>
